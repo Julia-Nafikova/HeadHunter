@@ -53,5 +53,3 @@ class OperationsOnVacancies:
     def to_dict(self):
         """Возвращает словарь с данными о вакансии из экземпляра класса OperationsOnVacancies"""
         return {"name": self.name, "url": self.url, "requirement": self.requirement, "responsibility": self.responsibility, "salary": self.salary}
-
-
