@@ -1,9 +1,9 @@
-class OperationsOnVacancies:
+class Vacancy:
     """Класс для работы с вакансиями"""
     __slots__ = ("name", "url", "requirement", "responsibility", "salary")
 
     def __init__(self, name, url, requirement, responsibility, salary):
-        """Инициализатор класса OperationsOnVacancies"""
+        """Инициализатор класса Vacancy"""
         self.name = name
         self.url = url
         self.requirement = requirement
@@ -19,7 +19,7 @@ class OperationsOnVacancies:
 
     @classmethod
     def get_object_list(cls, vacancies):
-        """Возвращает список экземпляров OperationsOnVacancies из списка словарей"""
+        """Возвращает список экземпляров Vacancy из списка словарей"""
         return [cls(**result) for result in vacancies]
 
     def __str__(self):
@@ -30,7 +30,7 @@ class OperationsOnVacancies:
     @classmethod
     def __verify_data(cls, other):
         """Проверка типа данных"""
-        if not isinstance(other,(float, OperationsOnVacancies)):
+        if not isinstance(other,(float, Vacancy)):
             raise TypeError
 
         return other if isinstance(other, float) else other.salary

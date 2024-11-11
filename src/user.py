@@ -1,4 +1,4 @@
-from src.operations_on_vacancies import OperationsOnVacancies
+from src.operations_on_vacancies import Vacancy
 
 def salary_range(vacancies, salary_from):
     """Возвращает список вакансий с заданным значением зарплаты"""

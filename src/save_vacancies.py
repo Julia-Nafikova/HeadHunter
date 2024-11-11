@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 from json import JSONDecodeError
 
 from config import DATA_DIR
-from src.operations_on_vacancies import OperationsOnVacancies
+from src.operations_on_vacancies import Vacancy
 
 
 class Saver(ABC):
@@ -76,5 +76,5 @@ class SaverJSON(Saver):
             if word in result.get("name").lower():
                 filtered_vacancies.append(result)
 
-        return OperationsOnVacancies.get_object_list(filtered_vacancies)
+        return Vacancy.get_object_list(filtered_vacancies)
 

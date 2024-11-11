@@ -21,6 +21,11 @@ class HeadHunterAPI(Parser):
         self.__params = {'text': '', 'page': 0, 'per_page': 100}
         self.__vacancies = []
 
+    @property
+    def url(self) -> str:
+        """Возвращает cвойство url"""
+        return self.__url
+
     def __api_connect(self):
         """Подключение к API сервиса с вакансиями"""
         response = requests.get(self.__url, headers=self.__headers, params=self.__params)

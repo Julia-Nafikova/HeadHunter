@@ -1,5 +1,5 @@
 from src.hh_api import HeadHunterAPI
-from src.operations_on_vacancies import OperationsOnVacancies
+from src.operations_on_vacancies import Vacancy
 from src.save_vacancies import SaverJSON
 from src.user import salary_range, top_n_salary
 
@@ -39,7 +39,7 @@ def user_input():
                 action = 1
 
     if action == 1:
-        for vac in OperationsOnVacancies.get_object_list(hh_vacancies):
+        for vac in Vacancy.get_object_list(hh_vacancies):
             print(vac)
             print()
 
@@ -55,7 +55,7 @@ def user_input():
         except ValueError:
             print("Некорректный ввод. Нижний порог не указан")
             salary_from = 0
-        vacs_objects = OperationsOnVacancies.get_object_list(hh_vacancies)
+        vacs_objects = Vacancy.get_object_list(hh_vacancies)
         for vac in salary_range(vacs_objects, salary_from):
             print(vac)
             print()
@@ -71,13 +71,13 @@ def user_input():
         if top_n > len(hh_vacancies):
             top_n = len(hh_vacancies) - 1
 
-        vacs_objects = OperationsOnVacancies.get_object_list(hh_vacancies)
+        vacs_objects = Vacancy.get_object_list(hh_vacancies)
         for vac in top_n_salary(vacs_objects, top_n):
             print(vac)
             print()
 
     elif action == 5:
-        vacancy = OperationsOnVacancies(input("Введите название: "), input("Введите ссылку на вакансию: "),
+        vacancy = Vacancy(input("Введите название: "), input("Введите ссылку на вакансию: "),
                           input("Введите требования к работе: "), input("Введите рабочие обязанности: "),
                           int(input("Введите зарплату: ")))
         saver.add_vacancy(vacancy)
