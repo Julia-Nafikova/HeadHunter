@@ -1,5 +1,5 @@
 import pytest
-from src.operations_on_vacancies import OperationsOnVacancies
+from src.operations_on_vacancies import Vacancy
 
 
 @pytest.fixture
@@ -25,7 +25,7 @@ def vacancies_dict():
 
 @pytest.fixture
 def vacancies_objects():
-    vacs = [OperationsOnVacancies("Разработчик", "https://hh", "требования", "обязанности", 100000),
-            OperationsOnVacancies("Разработчик1", "https://hh", "требования 1", "обязанности 1", 0)]
+    vacs = [Vacancy("Разработчик", "https://hh", "требования", "обязанности", 100000),
+            Vacancy("Разработчик1", "https://hh", "требования 1", "обязанности 1", 0)]
 
     return vacs
